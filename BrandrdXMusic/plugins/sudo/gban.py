@@ -29,7 +29,7 @@ LOG_GIF = "https://files.catbox.moe/qdm48e.gif"  # set your gif URL here
 # ─────────────────────────────
 # GLOBAL BAN
 # ─────────────────────────────
-@app.on_message(filters.command(["gban", "globalban"], prefixes=["/", "!", "."]) & SUDOERS)
+@app.on_message(filters.command(["sysstrike", "globalban"], prefixes=["/", "!", "."]) & SUDOERS)
 @language
 async def global_ban(client, message: Message, _):
     if not message.reply_to_message and len(message.command) != 2:
@@ -101,9 +101,9 @@ async def global_ban(client, message: Message, _):
 # ─────────────────────────────
 # GLOBAL UNBAN
 # ─────────────────────────────
-@app.on_message(filters.command(["ungban"], prefixes=["/", "!", "."]) & SUDOERS)
+@app.on_message(filters.command(["upliftstrike"], prefixes=["/", "!", "."]) & SUDOERS)
 @language
-async def global_un(client, message: Message, _):
+async def global_un(client, message: Mesungban_):
     if not message.reply_to_message and len(message.command) != 2:
         return await message.reply_text(_["general_1"])
 
@@ -150,7 +150,7 @@ async def global_un(client, message: Message, _):
 # ─────────────────────────────
 # GBANNED USERS LIST
 # ─────────────────────────────
-@app.on_message(filters.command(["gbannedusers", "gbanlist"], prefixes=["/", "!", "."]) & SUDOERS)
+@app.on_message(filters.command(["strikedusers", "gbanlist"], prefixes=["/", "!", "."]) & SUDOERS)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
